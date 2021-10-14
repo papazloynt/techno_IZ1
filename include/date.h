@@ -2,16 +2,17 @@
 #define IZ1_DATE_H
 
 #include <stdbool.h>
+#include <stddef.h>
 
 typedef struct date_t {
-    int year;
-    int month;
-    int day_number;
+  int year;
+  int month;
+  int day_number;
 } date_t;
 
-bool date_compare(const date_t d1, const date_t d2);
-void sort_dates(date_t* dates, const int size);
-date_t* filling_dates(const int size);
-bool is_correct_dates(date_t* dates, const int size);
+bool date_compare(date_t* d1, date_t* d2);
+void sort_dates(date_t* dates, size_t size);
+date_t* filling_dates(size_t size);
+bool is_correct_dates(date_t* dates, size_t size);
 
-#endif //IZ1_DATE_H
+#endif  // IZ1_DATE_H

@@ -41,4 +41,10 @@ jobs:
       - name: valgrind
         run: |
           cd build
-          valgrind --error-exitcode=1 ./tests
+          valgrind --leak-check=full --error-exitcode=1 ./tests
+      - name: сlang-format style check
+        uses: jidicula/clang-format-action@v4.2.0
+        with:
+          clang-format-version: '13'
+          check-path: src/*.c include/*.h tests/*.cpp
+          fallback-style: 'Google'
