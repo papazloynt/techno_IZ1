@@ -43,9 +43,9 @@ jobs:
           cd build
           valgrind --leak-check=full --error-exitcode=1 ./tests
       - name: сlang-format style check
-        uses: jidicula/clang-format-action@v4.2.0
+        uses: DoozyX/clang-format-lint-action@v0.12
         with:
-          clangFormatVersion: 13
+          clangFormatVersion: 12
           source: './src ./include ./tests'
           exclude: './build ./third_party'
           extensions: 'h,c,cpp'
