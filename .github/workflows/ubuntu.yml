@@ -45,6 +45,8 @@ jobs:
       - name: сlang-format style check
         uses: jidicula/clang-format-action@v4.2.0
         with:
-          clang-format-version: '13'
-          check-path: 'src,include,tests'
-          fallback-style: 'Google'
+          clangFormatVersion: 13
+          source: './src ./include ./tests'
+          exclude: './build ./third_party'
+          extensions: 'h,c,cpp'
+          style: google
