@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-bool dateCompare(Date d1, Date d2) {
+bool date_compare(const date_t d1, const date_t d2) {
     if (d1.year < d2.year) {
         return true;
     } else if (d1.year == d2.year &&
@@ -18,26 +18,28 @@ bool dateCompare(Date d1, Date d2) {
     return false;
 }
 
-void sortDates(Date* dates, const int size) {
+void sort_dates(date_t* dates, const int size) {
+    if (dates == NULL) return;
+
     for (int startIndex = 0; startIndex < size - 1; ++startIndex) {
         int smallestIndex = startIndex;
 
         for (int currentIndex = startIndex + 1; currentIndex < size; ++currentIndex) {
-            if (dateCompare(dates[currentIndex], dates[smallestIndex]))
+            if (date_compare(dates[currentIndex], dates[smallestIndex]))
                 smallestIndex = currentIndex;
         }
 
-        Date tmp = dates[startIndex];
+        date_t tmp = dates[startIndex];
         dates[startIndex] = dates[smallestIndex];
         dates[smallestIndex] = tmp;
     }
 }
 
-Date* fillingDates(const int size) {
+date_t* filling_dates(const int size) {
     if (size < 0 ) {
         return NULL;
     }
-    Date* dates = (Date*)malloc(size * sizeof(Date));
+    date_t* dates = (date_t*)malloc(size * sizeof(date_t));
     if (dates == NULL) return NULL;
 
     for (int i = 0; i < size; ++i) {
@@ -51,7 +53,9 @@ Date* fillingDates(const int size) {
     return dates;
 }
 
-bool isCorrectDates(Date* dates, const int size) {
+bool is_correct_dates(date_t* dates, const int size) {
+    if (dates == NULL) return false;
+
     for (int i = 0; i < size; ++i) {
         if (dates[i].day_number > 31 || dates[i].day_number < 0
                 || dates[i].month > 12 || dates[i].month < 0) {

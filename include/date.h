@@ -3,15 +3,15 @@
 
 #include <stdbool.h>
 
-typedef struct Date {
+typedef struct date_t {
     int year;
     int month;
     int day_number;
-} Date;
+} date_t;
 
-bool dateCompare(Date d1, Date d2);
-void sortDates(Date* dates, const int size);
-Date* fillingDates(const int size);
-bool isCorrectDates(Date* dates, const int size);
+bool date_compare(const date_t d1, const date_t d2);
+void sort_dates(date_t* dates, const int size);
+date_t* filling_dates(const int size);
+bool is_correct_dates(date_t* dates, const int size);
 
 #endif //IZ1_DATE_H

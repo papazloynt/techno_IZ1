@@ -10,14 +10,14 @@ int main(int argc, char *argv[]) {
     int size;
     scanf("%d", &size);
 
-    Date* dates = fillingDates(size);
+    date_t* dates = filling_dates(size);
     // check input
-    if (!isCorrectDates(dates, size)) {
+    if (!is_correct_dates(dates, size)) {
         free(dates);
         return 1;
     }
 
-    sortDates(dates, size);
+    sort_dates(dates, size);
 
     printf("Sorted Dates:\n");
     for (int i = 0; i < size; ++i) {

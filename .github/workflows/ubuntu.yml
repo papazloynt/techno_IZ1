@@ -37,7 +37,7 @@ jobs:
           bash <(curl -s https://codecov.io/bash) -t  f75e7e54-9fcd-46da-bbc6-8c3347735eef -f coverage.info || echo "Codecov did not collect coverage reports"
       - name: cppcheck
         run: |
-          cppcheck --error-exitcode=1 src/rim.c src/main.c
+          cppcheck --inconclusive --enable=all --language=c --error-exitcode=1 src/rim.c src/main.c
       - name: valgrind
         run: |
           cd build

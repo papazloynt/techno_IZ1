@@ -6,14 +6,14 @@ extern "C" {
 }
 
 TEST(date, wrong_size) {
-    ASSERT_EQ(fillingDates(-1), nullptr);
+    ASSERT_EQ(filling_dates(-1), nullptr);
 }
 
 TEST(date, wrong_dates) {
     const int size = 3;
     const int wrong_number = 40;
 
-    Date* dates = (Date*)malloc(size * sizeof(Date));
+    date_t* dates = (date_t*)malloc(size * sizeof(date_t));
     if (dates == NULL) FAIL();
 
     for (size_t i = 0; i < size; ++i) {
@@ -21,7 +21,7 @@ TEST(date, wrong_dates) {
         dates[i].month = wrong_number;
         dates[i].year = 2021;
     }
-    EXPECT_EQ(isCorrectDates(dates, size), false);
+    EXPECT_EQ(is_correct_dates(dates, size), false);
 
     free(dates);
 }
@@ -29,7 +29,7 @@ TEST(date, wrong_dates) {
 TEST(date, check_sort) {
     const int size = 3;
 
-    Date* dates = (Date*)malloc(size * sizeof(Date));
+    date_t* dates = (date_t*)malloc(size * sizeof(date_t));
     if (dates == NULL) FAIL();
 
     dates[0].day_number = 31;
@@ -44,9 +44,9 @@ TEST(date, check_sort) {
     dates[2].month = 10;
     dates[2].year = 2000;
 
-    EXPECT_EQ(isCorrectDates(dates, size), true);
+    EXPECT_EQ(is_correct_dates(dates, size), true);
 
-    sortDates(dates, size);
+    sort_dates(dates, size);
 
     EXPECT_EQ(dates[0].day_number, 2);
     EXPECT_EQ(dates[0].month, 10);
