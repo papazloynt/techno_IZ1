@@ -21,11 +21,10 @@ TEST(date, wrong_dates) {
         dates[i].month = wrong_number;
         dates[i].year = 2021;
     }
-    ASSERT_EQ(isCorrectDates(dates, size), false);
+    EXPECT_EQ(isCorrectDates(dates, size), false);
 
     free(dates);
 }
-
 
 TEST(date, check_sort) {
     const int size = 3;
@@ -45,26 +44,24 @@ TEST(date, check_sort) {
     dates[2].month = 10;
     dates[2].year = 2000;
 
-    ASSERT_EQ(isCorrectDates(dates, size), true);
+    EXPECT_EQ(isCorrectDates(dates, size), true);
 
     sortDates(dates, size);
 
-    ASSERT_EQ(dates[0].day_number, 2);
-    ASSERT_EQ(dates[0].month, 10);
-    ASSERT_EQ(dates[0].year, 2000);
+    EXPECT_EQ(dates[0].day_number, 2);
+    EXPECT_EQ(dates[0].month, 10);
+    EXPECT_EQ(dates[0].year, 2000);
 
-    ASSERT_EQ(dates[1].day_number, 31);
-    ASSERT_EQ(dates[1].month, 10);
-    ASSERT_EQ(dates[1].year, 2000);
+    EXPECT_EQ(dates[1].day_number, 31);
+    EXPECT_EQ(dates[1].month, 10);
+    EXPECT_EQ(dates[1].year, 2000);
 
-    ASSERT_EQ(dates[2].day_number, 2);
-    ASSERT_EQ(dates[2].month, 11);
-    ASSERT_EQ(dates[2].year, 2021);
+    EXPECT_EQ(dates[2].day_number, 2);
+    EXPECT_EQ(dates[2].month, 11);
+    EXPECT_EQ(dates[2].year, 2021);
 
     free(dates);
 }
-
-
 
 int main(int argc, char* argv[]){
     ::testing::InitGoogleTest(&argc, argv);
