@@ -46,5 +46,7 @@ jobs:
         uses: jidicula/clang-format-action@v4.2.0
         with:
           clang-format-version: '13'
-          check-path: src include tests
+          source: '.'
+          exclude: './third_party'
+          extensions: 'h,c,cpp'
           fallback-style: 'Google'
